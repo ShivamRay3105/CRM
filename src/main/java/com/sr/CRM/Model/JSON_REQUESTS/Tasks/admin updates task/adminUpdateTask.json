@@ -1,0 +1,8 @@
+{
+  "id": 5,
+  "name": "Updated Name",
+  "email": "new@example.com",
+  "phone": "9123456789",
+  "company": "Updated Pvt Ltd",
+  "status": "CONVERTED"
+}

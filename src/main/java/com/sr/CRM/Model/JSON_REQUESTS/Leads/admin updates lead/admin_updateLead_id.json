@@ -1,0 +1,8 @@
+{
+  "name": "John Updated",
+  "email": "johnupdated@example.com",
+  "phone": "9876500000",
+  "company": "Updated Corp",
+  "status": "CONTACTED",
+  "assignedToId": 2
+}

@@ -1,0 +1,61 @@
+🧾 Customer Relationship Management (CRM) System – Feature List
+________________________________________
+1. Authentication & Authorization
+•	Custom login and signup system using Spring Security and BCrypt password encoder.
+•	Role-based access control (e.g., EMPLOYEE, ADMIN) to restrict access to different modules.
+•	Logout functionality to securely end sessions.
+________________________________________
+2. Dashboard & Analytics
+•	A centralized dashboard that displays analytics such as:
+o	Total leads created.
+o	Lead conversion ratio (Converted vs Lost).
+o	Task completion rate (Pending vs Completed).
+•	Simple bar/pie charts for better visualization.
+________________________________________
+3. Navigation Bar
+•	A clean and accessible navbar providing quick links to:
+o	Dashboard
+o	Leads
+o	Clients/Contacts
+o	Tasks
+o	Notes
+o	Login / Logout
+________________________________________
+4. Leads Management
+•	Employees can generate and manage leads by filling in client details (name, company, contact, source, etc.).
+•	Leads go through various pipeline stages: New → Contacted → Proposal → Converted/Lost.
+•	Admins can view and assign leads to employees.
+•	Search and filter functionality for easy tracking.
+________________________________________
+5. Clients / Contacts Module
+•	Once a lead is converted, it becomes a client.
+•	Employees can view a list of all active clients and their contact information.
+•	Each client profile includes associated tasks and notes for context.
+________________________________________
+6. Tasks Module
+•	Employees can create, view, and manage tasks.
+•	Each task is linked to a lead or client and includes a title, description, due date, and status.
+•	Tasks can be filtered by due date or completion status (Pending, Completed, Overdue).
+•	Tasks can be marked as complete directly from the list view.
+________________________________________
+7. Notes Module
+•	Employees can add notes related to specific leads or clients.
+•	Useful for recording meeting summaries, follow-up reminders, or custom client details.
+•	Each note is timestamped and optionally editable.
+________________________________________
+8. Role-Based Access Control
+•	Admins have access to additional data such as:
+o	All leads
+o	All users/employees
+o	Assignment controls
+•	Employees can only access and modify data they own or are assigned to.
+________________________________________
+9. Data Integrity & Security
+•	Passwords are stored securely using BCrypt hashing.
+•	Sensitive endpoints are protected using Spring Security.
+•	Input validation on all forms to prevent data inconsistency.
+________________________________________
+10. UI/UX Design (Frontend)
+•	User-friendly interface with form validation and clean navigation.
+•	Color-coded statuses (e.g., green for completed tasks, red for overdue).
+•	Interactive dashboards with dynamic updates.
