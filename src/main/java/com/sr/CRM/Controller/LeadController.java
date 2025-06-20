@@ -22,9 +22,10 @@ public class LeadController {
     @Autowired
     private LeadService leadService;
 
+    // this is for adding lead
     @PostMapping("/addLead")
     public Lead addLead(@RequestBody Lead lead) { 
-        
+
         return leadService.saveLead(lead);
     }
 
