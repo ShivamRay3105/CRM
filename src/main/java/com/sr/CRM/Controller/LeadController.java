@@ -23,7 +23,8 @@ public class LeadController {
     private LeadService leadService;
 
     @PostMapping("/addLead")
-    public Lead addLead(@RequestBody Lead lead) {
+    public Lead addLead(@RequestBody Lead lead) { 
+        
         return leadService.saveLead(lead);
     }
 
