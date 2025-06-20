@@ -1,0 +1,12 @@
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone_number": "9876543210",
+  "address": "123, Main Street, Mumbai, Maharashtra",
+  "username": "johndoe",
+  "password": "Password123",
+  "position": "Sales Executive",
+  "department": "Sales",
+  "roles": ["EMPLOYEE"]
+}
+
