@@ -1,0 +1,15 @@
+# Node.js frontend
+crm-frontend/node_modules/
+crm-frontend/.next/
+crm-frontend/.env.local
+crm-frontend/.env
+
+# Java backend
+crm-backend/target/
+crm-backend/.idea/
+crm-backend/*.iml
+crm-backend/.env
+
+# System files
+*.log
+.DS_Store
