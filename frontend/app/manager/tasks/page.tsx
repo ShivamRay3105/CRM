@@ -1514,7 +1514,23 @@ export default function ManagerTasks() {
           </select>
         </div>
       </div>
-      {/* Footer buttons remain unchanged */}
+      <div className="p-6 bg-slate-50 border-t border-slate-200 flex justify-end gap-3 rounded-b-3xl">
+  <button
+    onClick={() => setShowAddModal(false)}
+    className="group relative overflow-hidden bg-white text-black px-6 py-3 rounded-xl hover:bg-slate-50 transition-all duration-300 shadow-xl hover:shadow-slate-200/50 transform hover:scale-105 font-semibold border border-slate-200"
+  >
+    <span className="relative z-10">Cancel</span>
+    <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+  </button>
+  <button
+    onClick={handleCreateTask}
+    className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-indigo-500/50 transform hover:scale-105 font-semibold"
+  >
+    <span className="relative z-10">Create Task</span>
+    <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+  </button>
+</div>
+
     </div>
   </div>
 )}
@@ -1625,7 +1641,28 @@ export default function ManagerTasks() {
           </select>
         </div>
       </div>
-      {/* Footer buttons remain unchanged */}
+      <div className="p-6 bg-slate-50 border-t border-slate-200 flex justify-end gap-3 rounded-b-3xl">
+  <button
+    onClick={() => setEditingTask(null)}
+    className="group relative overflow-hidden bg-white text-slate-800 px-6 py-3 rounded-xl hover:bg-slate-50 transition-all duration-300 shadow-xl hover:shadow-slate-200/50 transform hover:scale-105 font-semibold border border-slate-200"
+  >
+    <span className="relative z-10">Cancel</span>
+    <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+  </button>
+  <button
+    onClick={() =>
+      handleUpdateTask(
+        editingTask,
+        allRawEmployeeTasks.some((t) => t.id === editingTask.id),
+      )
+    }
+    className="group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-indigo-500/50 transform hover:scale-105 font-semibold"
+  >
+    <span className="relative z-10">Save Changes</span>
+    <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+  </button>
+</div>
+
     </div>
   </div>
 )}
