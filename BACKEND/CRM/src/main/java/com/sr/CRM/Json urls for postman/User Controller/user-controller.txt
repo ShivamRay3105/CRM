@@ -1,0 +1,12 @@
+Post
+
+{
+    http://localhost:8080/api/employees/addEmployee
+    http://localhost:8080/api/employees/addAdmin
+}
+
+Get 
+
+{
+    http://localhost:8080/api/employees/user/{id}
+}

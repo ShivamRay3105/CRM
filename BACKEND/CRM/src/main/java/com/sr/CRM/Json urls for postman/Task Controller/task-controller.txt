@@ -1,0 +1,20 @@
+POST
+
+{
+    http://localhost:8080/api/Tasks/addTask
+}
+
+Get
+
+{
+    http://localhost:8080/api/Tasks/myTasks 
+    http://localhost:8080/api/Leads/getTask/{id}
+
+}
+
+PUT
+
+{
+    http://localhost:8080/api/Leads//admin/updateTask/{id}
+    http://localhost:8080/api/Leads//EmployeeTaskUpdate/{id}
+}

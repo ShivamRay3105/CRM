@@ -1,0 +1,20 @@
+POST
+
+{
+    http://localhost:8080/api/Leads/addLead
+}
+
+Get
+
+{
+    http://localhost:8080/api/Leads/myLeads 
+    http://localhost:8080/api/Leads/getLead/{id}
+
+}
+
+PUT
+
+{
+    http://localhost:8080/api/Leads/admin/updateLead/{id}
+    http://localhost:8080/api/Leads/getLead/{id}
+}
