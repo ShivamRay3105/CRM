@@ -39,6 +39,7 @@ public class SecurityConfig {
         return new ProviderManager(daoAuthenticationProvider());
     }
 
+    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
