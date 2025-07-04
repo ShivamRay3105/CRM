@@ -41,7 +41,7 @@ export default function Login() {
 
     try {
       // Step 1: Authenticate with /api/auth/login
-      const loginResponse = await fetch("http://localhost:8080/api/auth/login", {
+      const loginResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -78,7 +78,7 @@ if (loginContentType.includes("application/json")) {
       console.log("Stored token:", loginData.username || "fallback-token")
 
       // Step 2: Fetch user role from /api/users/me
-      const userResponse = await fetch("http://localhost:8080/api/users/me", {
+      const userResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

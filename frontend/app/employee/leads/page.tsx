@@ -71,7 +71,7 @@ export default function EmployeeLeads() {
     try {
       const token = localStorage.getItem("token")
       if (!token) throw new Error("No authentication token found")
-      const response = await fetch("http://localhost:8080/api/users/me", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
         credentials: "include",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export default function EmployeeLeads() {
 
       // Keep fetching until we get all pages
       do {
-        const url = `http://localhost:8080/api/Leads/myLeads?page=${currentPage}&size=50` // Increased size to reduce API calls
+        const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/myLeads?page=${currentPage}&size=50` // Increased size to reduce API calls
         const response = await fetch(url, {
           credentials: "include",
           headers: {
@@ -266,7 +266,7 @@ export default function EmployeeLeads() {
     try {
       const token = localStorage.getItem("token")
       if (!token) throw new Error("No authentication token found")
-      const response = await fetch("http://localhost:8080/api/Leads/addLead", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/addLead`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -302,7 +302,7 @@ export default function EmployeeLeads() {
     try {
       const token = localStorage.getItem("token")
       if (!token) throw new Error("No authentication token found")
-      const response = await fetch(`http://localhost:8080/api/Leads/updateLead/${editingLead.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/updateLead/${editingLead.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -339,7 +339,7 @@ export default function EmployeeLeads() {
     try {
       const token = localStorage.getItem("token")
       if (!token) throw new Error("No authentication token found")
-      const response = await fetch(`http://localhost:8080/api/Leads/deleteLead/${leadId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/deleteLead/${leadId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -370,7 +370,7 @@ export default function EmployeeLeads() {
     try {
       const token = localStorage.getItem("token")
       if (!token) throw new Error("No authentication token found")
-      const response = await fetch(`http://localhost:8080/api/Leads/convert/${conversionRequest.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/convert/${conversionRequest.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

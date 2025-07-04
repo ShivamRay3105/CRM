@@ -193,7 +193,7 @@ export default function AdminDashboard() {
         setLoading(true)
         setError("")
         // Check if backend is available first
-        const healthCheck = await fetch("http://localhost:8080/api/users/me", {
+        const healthCheck = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
           credentials: "include",
         }).catch(() => null)
 
@@ -219,10 +219,10 @@ export default function AdminDashboard() {
 
         // Fetch all data
         const [leadsData, tasksData, clientsData, usersData] = await Promise.all([
-          fetchWithFallback("http://localhost:8080/api/admin/allLeads?page=0&size=100", { content: [] }),
-          fetchWithFallback("http://localhost:8080/api/admin/allTasks?page=0&size=100", { content: [] }),
-          fetchWithFallback("http://localhost:8080/api/admin/getAllClients", []),
-          fetchWithFallback("http://localhost:8080/api/admin/getAllUsers", []),
+          fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/allLeads?page=0&size=100`, { content: [] }),
+          fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/allTasks?page=0&size=100`, { content: [] }),
+          fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/getAllClients`, []),
+          fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/getAllUsers`, []),
         ])
 
         setData({

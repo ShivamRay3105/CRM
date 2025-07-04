@@ -104,7 +104,7 @@ export default function AdminEmployeesPage() {
           return
         }
 
-        const response = await fetch("http://localhost:8080/api/admin/getAllEmployees", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/getAllEmployees`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -181,7 +181,7 @@ export default function AdminEmployeesPage() {
         throw new Error("Authentication token missing")
       }
       console.log("Sending update for employee:", editingEmployee.id, "with data:", editForm)
-      const response = await fetch(`http://localhost:8080/api/admin/updateEmployee/${editingEmployee.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/updateEmployee/${editingEmployee.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

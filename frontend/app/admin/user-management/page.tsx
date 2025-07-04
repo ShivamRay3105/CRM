@@ -45,7 +45,7 @@ export default function UserManagement() {
   const fetchManagers = async () => {
     try {
       const token = localStorage.getItem("token")
-      const res = await fetch("http://localhost:8080/api/admin/getAllEmployees", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/getAllEmployees`, {
         headers: { Authorization: `Bearer ${token}` },
         credentials: "include",
       })
@@ -68,7 +68,7 @@ export default function UserManagement() {
 
   useEffect(() => {
     setIsVisible(true)
-    fetch("http://localhost:8080/api/users/me", {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -101,7 +101,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
     }
 
     try {
-      const res = await fetch(`http://localhost:8080/api/admin/${endpoint}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

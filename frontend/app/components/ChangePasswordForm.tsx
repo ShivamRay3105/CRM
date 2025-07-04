@@ -44,7 +44,7 @@ export default function ChangePasswordForm() {
     setError('');
     setSuccess('');
     try {
-      const response = await axios.put('http://localhost:8080/api/auth/change-password', {
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/change-password`, {
         oldPassword: data.oldPassword,
         newPassword: data.newPassword,
       }, {

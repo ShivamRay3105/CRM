@@ -43,7 +43,7 @@ export default function AdminLeads() {
     setLoading(true)
     try {
       // Fetch all leads without pagination to enable comprehensive search
-      const url = `http://localhost:8080/api/admin/allLeads?size=9999` // A large size to fetch all
+      const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/allLeads?size=9999` // A large size to fetch all
       const response = await fetch(url, {
         credentials: "include",
       })

@@ -36,7 +36,7 @@ export default function EmployeeClientsPage() {
           return
         }
 
-        const response = await fetch("http://localhost:8080/api/clients/Employee/allClients", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/clients/Employee/allClients`, {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",

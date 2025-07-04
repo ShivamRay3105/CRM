@@ -178,7 +178,7 @@ export default function EmployeeDashboard() {
         setError("")
 
         // Check if backend is available first
-        const healthCheck = await fetch("http://localhost:8080/api/users/me", {
+        const healthCheck = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
           credentials: "include",
         }).catch(() => null)
 
@@ -203,19 +203,19 @@ export default function EmployeeDashboard() {
         }
 
         // Fetch my leads
-        const leadsData = await fetchWithFallback("http://localhost:8080/api/Leads/myLeads?page=0&size=100", {
+        const leadsData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/myLeads?page=0&size=100`, {
           content: [],
         })
         setLeads(leadsData.content || [])
 
         // Fetch my tasks
-        const tasksData = await fetchWithFallback("http://localhost:8080/api/Tasks/myTasks?page=0&size=100", {
+        const tasksData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/myTasks?page=0&size=100`, {
           content: [],
         })
         setTasks(tasksData.content || [])
 
         // Fetch analytics
-        const analyticsData = await fetchWithFallback("http://localhost:8080/api/analytics/summary", {})
+        const analyticsData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/analytics/summary`, {})
         setAnalytics(analyticsData || {})
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Failed to load dashboard data"

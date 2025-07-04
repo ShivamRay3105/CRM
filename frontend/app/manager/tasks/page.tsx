@@ -204,7 +204,7 @@ export default function ManagerTasks() {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -222,7 +222,7 @@ export default function ManagerTasks() {
     setLoading(true)
     try {
       // Fetch all personal and assigned tasks
-      const personalResponse = await fetch(`http://localhost:8080/api/Tasks/myTasks?page=0&size=9999`, {
+      const personalResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/myTasks?page=0&size=9999`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -233,7 +233,7 @@ export default function ManagerTasks() {
       setAllRawAssignedTasks(normalizedPersonalTasks.filter((task) => task.assignedToId !== task.assignedById))
 
       // Fetch all employee tasks
-      const employeeResponse = await fetch(`http://localhost:8080/api/Manager/allTasksOfEmployees?page=0&size=9999`, {
+      const employeeResponse = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/allTasksOfEmployees?page=0&size=9999`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -252,7 +252,7 @@ export default function ManagerTasks() {
 
   const fetchLeads = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/Manager/allLeadsOfEmployees?page=0&size=100", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/allLeadsOfEmployees?page=0&size=100`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -268,7 +268,7 @@ export default function ManagerTasks() {
 
   const fetchEmployees = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/Manager/employees", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/employees`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -404,7 +404,7 @@ export default function ManagerTasks() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:8080/api/Tasks/addTask", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/addTask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -442,8 +442,8 @@ export default function ManagerTasks() {
   const handleUpdateTask = useCallback(async (task: Task, isEmployeeTask: boolean) => {
     try {
       const endpoint = isEmployeeTask
-        ? `http://localhost:8080/api/Manager/updateEmployeeTask/${task.id}`
-        : `http://localhost:8080/api/Tasks/TaskUpdate/${task.id}`
+        ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/updateEmployeeTask/${task.id}`
+        : `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/TaskUpdate/${task.id}`
       const dueDateFormatted = task.dueDate.includes("T") ? task.dueDate : `${task.dueDate.split("T")[0]}T00:00:00`
       const response = await fetch(endpoint, {
         method: "PUT",
@@ -479,7 +479,7 @@ export default function ManagerTasks() {
   // Wrap handleDeleteTask in useCallback
   const handleDeleteTask = useCallback(async (taskId: number, isAssignedTask: boolean, isEmployeeTask: boolean) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/Tasks/deleteTask/${taskId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/deleteTask/${taskId}`, {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

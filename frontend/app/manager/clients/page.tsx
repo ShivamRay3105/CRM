@@ -111,7 +111,7 @@ export default function ManagerClientsPage() {
           return
         }
 
-        const response = await fetch("http://localhost:8080/api/clients/Manager/allClientsOfEmployees", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/clients/Manager/allClientsOfEmployees`, {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
@@ -227,7 +227,7 @@ export default function ManagerClientsPage() {
 
       console.log("Sending update for client:", editingClient.id, "with data:", editForm)
 
-      const response = await fetch(`http://localhost:8080/api/Manager/updateClient/${editingClient.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/updateClient/${editingClient.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -286,7 +286,7 @@ export default function ManagerClientsPage() {
 
       console.log("Deleting client:", clientId)
 
-      const response = await fetch(`http://localhost:8080/api/Manager/deleteClient/${clientId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/deleteClient/${clientId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

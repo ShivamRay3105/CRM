@@ -117,7 +117,7 @@ export default function AdminClientsPage() {
           return;
         }
 
-        const response = await fetch('http://localhost:8080/api/admin/getAllClients', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/admin/getAllClients`, {
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',

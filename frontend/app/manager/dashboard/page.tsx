@@ -187,7 +187,7 @@ export default function ManagerDashboard() {
         setError("")
 
         // Check if backend is available first
-        const healthCheck = await fetch("http://localhost:8080/api/users/me", {
+        const healthCheck = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
           credentials: "include",
         }).catch(() => null)
 
@@ -213,32 +213,32 @@ export default function ManagerDashboard() {
 
         // Fetch leads of employees
         const leadsData = await fetchWithFallback(
-          "http://localhost:8080/api/Manager/allLeadsOfEmployees?page=0&size=100",
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/allLeadsOfEmployees?page=0&size=100`,
           { content: [] },
         )
         setLeads(leadsData.content || [])
 
         // Fetch tasks of employees
         const tasksData = await fetchWithFallback(
-          "http://localhost:8080/api/Manager/allTasksOfEmployees?page=0&size=100",
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/allTasksOfEmployees?page=0&size=100`,
           { content: [] },
         )
         setTasks(tasksData.content || [])
 
         // Fetch employees
-        const employeesData = await fetchWithFallback("http://localhost:8080/api/Manager/employees", [])
+        const employeesData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/employees`, [])
         setEmployees(employeesData || [])
 
         // Fetch my leads
       
         // Fetch my tasks
-        const myTasksData = await fetchWithFallback("http://localhost:8080/api/Tasks/myTasks?page=0&size=100", {
+        const myTasksData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/myTasks?page=0&size=100`, {
           content: [],
         })
         setMyTasks(myTasksData.content || [])
 
         // Fetch analytics
-        const analyticsData = await fetchWithFallback("http://localhost:8080/api/analytics/manager", {})
+        const analyticsData = await fetchWithFallback(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/analytics/manager`, {})
         setAnalytics(analyticsData || {})
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Failed to load dashboard data"

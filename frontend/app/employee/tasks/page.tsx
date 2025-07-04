@@ -128,7 +128,7 @@ export default function EmployeeTasks() {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -151,7 +151,7 @@ export default function EmployeeTasks() {
 
       // Keep fetching until we get all pages
       do {
-        const response = await fetch(`http://localhost:8080/api/Tasks/myTasks?page=${currentPage}&size=50`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/myTasks?page=${currentPage}&size=50`, {
           credentials: "include",
           headers: { "Content-Type": "application/json" },
         })
@@ -185,7 +185,7 @@ export default function EmployeeTasks() {
 
   const fetchLeads = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/Leads/myLeads?page=0&size=100", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/myLeads?page=0&size=100`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -296,7 +296,7 @@ export default function EmployeeTasks() {
     if (!newTask.description.trim()) return setError("Description is required")
     if (!newTask.dueDate) return setError("Due date is required")
     try {
-      const response = await fetch("http://localhost:8080/api/Tasks/addTask", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/addTask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -323,7 +323,7 @@ export default function EmployeeTasks() {
       const dueDateFormatted = editingTask.dueDate.includes("T")
         ? editingTask.dueDate
         : `${editingTask.dueDate.split("T")[0]}T00:00:00`
-      const response = await fetch(`http://localhost:8080/api/Tasks/TaskUpdate/${editingTask.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/TaskUpdate/${editingTask.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -355,7 +355,7 @@ export default function EmployeeTasks() {
     if (!confirm("Are you sure you want to delete this task?")) return
 
     try {
-      const response = await fetch(`http://localhost:8080/api/Tasks/deleteTask/${taskId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Tasks/deleteTask/${taskId}`, {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

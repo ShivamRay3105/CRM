@@ -71,7 +71,7 @@ export default function ManagerLeads() {
 
   const checkManagerRole = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/me`, {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export default function ManagerLeads() {
 
   const fetchEmployees = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/Manager/employees", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/employees`, {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const fetchLeads = async () => {
     let totalFetchedPages = 1
 
     while (currentPage < totalFetchedPages) {
-      const response = await fetch(`http://localhost:8080/api/Manager/allLeadsOfEmployees?page=${currentPage}&size=10`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/allLeadsOfEmployees?page=${currentPage}&size=10`, {
         credentials: "include",
         headers: { "Content-Type": "application/json" },
       })
@@ -192,7 +192,7 @@ const fetchLeads = async () => {
 
   const fetchPendingLeads = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/Leads/pending?page=${pendingPage}&size=10`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/pending?page=${pendingPage}&size=10`, {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
@@ -254,7 +254,7 @@ const fetchLeads = async () => {
     if (!newLead.assignedToId) return setError("Please select an employee")
 
     try {
-      const response = await fetch("http://localhost:8080/api/Leads/addLead", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/addLead`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -303,7 +303,7 @@ const fetchLeads = async () => {
       return setError("Please select a valid status")
 
     try {
-      const response = await fetch(`http://localhost:8080/api/Manager/updateLeads/${editingLead.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Manager/updateLeads/${editingLead.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -344,7 +344,7 @@ const fetchLeads = async () => {
   const handleDeleteLead = async (leadId: number) => {
     if (!confirm("Are you sure you want to delete this lead?")) return
     try {
-      const response = await fetch(`http://localhost:8080/api/Leads/deleteLead/${leadId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/deleteLead/${leadId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -377,7 +377,7 @@ const fetchLeads = async () => {
   const handleApproveConversion = async () => {
     if (!approvingLead) return
     try {
-      const response = await fetch(`http://localhost:8080/api/Leads/approve/${approvingLead.id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Leads/approve/${approvingLead.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
