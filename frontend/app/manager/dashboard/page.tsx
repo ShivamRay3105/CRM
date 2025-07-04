@@ -348,7 +348,7 @@ export default function ManagerDashboard() {
 
   // Memoized chart data
   const chartData = useMemo(() => {
-    const leadStatuses = ["NEW", "CONTACTED", "QUALIFIED", "LOST", "CONVERTED"]
+    const leadStatuses = ["NEW", "CONTACTED", "QUALIFIED", "LOST"]
     const taskStatuses = ["TODO", "IN_PROGRESS", "DONE"]
     const taskPriorities = ["LOW", "MEDIUM", "HIGH", "URGENT"]
 

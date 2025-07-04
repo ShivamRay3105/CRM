@@ -340,7 +340,7 @@ const conversionRate = total
 
   // Memoized chart data
   const chartData = useMemo(() => {
-    const leadStatuses = ["NEW", "CONTACTED", "QUALIFIED", "LOST", "CONVERTED"]
+    const leadStatuses = ["NEW", "CONTACTED", "QUALIFIED", "LOST"]
     const taskStatuses = ["TODO", "IN_PROGRESS", "DONE"]
     const clientStatuses = ["ACTIVE", "INACTIVE", "ON_HOLD", "CLOSED"]
     const taskPriorities = ["LOW", "MEDIUM", "HIGH", "URGENT"]
