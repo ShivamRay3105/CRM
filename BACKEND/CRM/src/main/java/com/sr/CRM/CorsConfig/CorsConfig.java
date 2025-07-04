@@ -9,7 +9,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000") // Next.js frontend
+                .allowedOrigins("https://crm-lilac-omega.vercel.app") // Next.js frontend
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);
